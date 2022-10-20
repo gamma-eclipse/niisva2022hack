@@ -1,5 +1,8 @@
+import { RouterProvider } from 'react-router-dom';
+
+import { router } from './router';
 import './styles/reset.css';
 
 export function App() {
-  return <div className="App">app</div>;
+  return <RouterProvider router={router} />;
 }

@@ -27,7 +27,15 @@
     "ecmaVersion": "latest",
     "sourceType": "module"
   },
-  "plugins": ["react"],
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"],
+        "moduleDirectory": ["node_modules", "src"]
+      }
+    }
+  },
+  "plugins": ["react", "import"],
   "rules": {
     // General
     "react/react-in-jsx-scope": "off",
@@ -38,7 +46,6 @@
     "prefer-template": "off",
     "no-restricted-syntax": "off",
     "no-duplicate-imports": "error",
-    "import/no-unresolved": "error",
     "no-continue": "warn",
     "no-plusplus": "off",
 
