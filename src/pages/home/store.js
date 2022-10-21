@@ -2,13 +2,18 @@ import { axiosMock } from 'helpers/axiosMock';
 import { makeAutoObservable } from 'mobx';
 import { dataMock } from 'mocks/dataMock';
 
-export const homeStore = makeAutoObservable({
-  data: null,
-  fetched: false,
-  fetching: false,
+class HomeStore {
+  constructor() {
+    makeAutoObservable(this);
+  }
 
-  async fetch() {
-    if (this.fetched || this.fetching) return;
+  data = null;
+
+  fetching = false;
+
+  fetch = async () => {
+    console.log(this);
+    if (this.fetching) return;
 
     this.fetching = true;
     const data = await axiosMock(dataMock);
@@ -16,7 +21,8 @@ export const homeStore = makeAutoObservable({
 
     if (data) {
       this.data = data;
-      this.fetched = true;
     }
-  },
-});
+  };
+}
+
+export const homeStore = new HomeStore();

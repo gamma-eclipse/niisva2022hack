@@ -17,7 +17,7 @@ export const dataMock = [
     packages: 65,
     traffic: 543256235,
     protocol: 'http',
-    host: '192.168.214.54',
+    host: '192.168.65.18',
     target: 'https://nillkiggers.ua',
     classification: {
       purpose: 'social',
