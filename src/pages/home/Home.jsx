@@ -1,4 +1,6 @@
+import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import { Button, TextField, Typography, styled } from '@mui/material';
+import { AnalyzeCard } from 'components/analyze-card';
 import { Layout } from 'components/layout';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
@@ -30,11 +32,17 @@ function Home() {
         <FileUpload>
           <Title variant="h5">Прикрепите pickup файл для анализа</Title>
           <TextField type="file" style={{ cursor: 'pointer' }} />
-          <Button disabled={homeStore.fetching} variant="contained" style={{ minWidth: 200 }} onClick={homeStore.fetch}>
-            {homeStore.fetching ? 'Загрузка...' : 'Загрузить'}
+          <Button
+            disabled={homeStore.fetching}
+            variant="contained"
+            style={{ minWidth: 200 }}
+            onClick={homeStore.fetch}
+            endIcon={homeStore.fetching ? <HourglassEmptyIcon /> : null}
+          >
+            {homeStore.fetching ? 'Загрузка' : 'Загрузить'}
           </Button>
         </FileUpload>
-        {homeStore.fetched && homeStore.data.map((elem) => <div key={elem.id}>{elem.target}</div>)}
+        {homeStore.data && homeStore.data.map((elem) => <AnalyzeCard key={elem.id} info={elem} />)}
       </div>
     </Layout>
   );
