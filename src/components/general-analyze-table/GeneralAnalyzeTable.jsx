@@ -2,7 +2,7 @@ import { Table, TableBody, TableHead, TableRow } from '@mui/material';
 import { AnalyzeRow } from 'components/analyze-row';
 import { TableCell, TableHeadCell } from 'shared/ui';
 
-export function GeneralAnalyzeTable({ analyzeResults }) {
+export function GeneralAnalyzeTable({ analyzes }) {
   return (
     <Table>
       <TableHead>
@@ -18,14 +18,14 @@ export function GeneralAnalyzeTable({ analyzeResults }) {
         </TableRow>
       </TableHead>
       <TableBody>
-        {analyzeResults.length === 0 ? (
+        {analyzes.length === 0 ? (
           <TableRow>
             <TableCell colSpan={20} style={{ color: 'gray' }}>
               Ничего не найдено
             </TableCell>
           </TableRow>
         ) : (
-          analyzeResults.map((analyze) => <AnalyzeRow key={analyze.id} analyze={analyze} />)
+          analyzes.map((analyze) => <AnalyzeRow key={analyze.id} analyze={analyze} />)
         )}
       </TableBody>
     </Table>

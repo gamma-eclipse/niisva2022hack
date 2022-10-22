@@ -3,19 +3,13 @@ import { axiosMock } from 'shared/helpers/axiosMock';
 import { generateCategories } from 'shared/helpers/generateCategories';
 import { analyzesMock } from 'shared/mocks/analyzesMock';
 
+import { analyzeStore } from './analyzeStore';
 import { filtersStore } from './filtersStore';
 
-class AnalyzeStore {
+class DynamicStore {
   constructor() {
     makeAutoObservable(this);
   }
-
-  CATEGORY_NAMES = ['name', 'purpose'];
-
-  CATEGORY_NAMES_MAP = {
-    name: 'Название источника',
-    purpose: 'Назначение',
-  };
 
   analyzes = null;
 
@@ -25,24 +19,39 @@ class AnalyzeStore {
     return filtersStore.filterAnalyzeResults(this.analyzes);
   }
 
+  listening = false;
+
+  listener = null;
+
+  start = () => {
+    this.listening = true;
+    this.listener = setInterval(() => this.fetch(), 1000);
+  };
+
+  stop = () => {
+    this.listening = false;
+    clearInterval(this.listener);
+  };
+
   fetching = false;
 
   fetch = async () => {
     if (this.fetching) return;
 
     this.fetching = true;
-    const data = await axiosMock(analyzesMock);
+    const data = await axiosMock(analyzesMock.slice(0, 2).map((v) => ({ ...v, id: Math.random() })));
     this.fetching = false;
 
     if (data) {
-      this.analyzes = data;
+      if (!this.analyzes) this.analyzes = data;
+      else this.analyzes = [...this.analyzes, ...data];
       this.genCategories();
     }
   };
 
   genCategories() {
-    this.categories = generateCategories(this.analyzes, this.CATEGORY_NAMES);
+    this.categories = generateCategories(this.analyzes, analyzeStore.CATEGORY_NAMES);
   }
 }
 
-export const analyzeStore = new AnalyzeStore();
+export const dynamicStore = new DynamicStore();

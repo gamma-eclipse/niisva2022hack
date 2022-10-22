@@ -17,6 +17,16 @@ class FiltersStore {
     name: ['Chrome', 'Firefox', 'Youtube', 'Coub', 'Telegram'],
   };
 
+  get changed() {
+    return Object.values(this.applied).some((v) => !!v);
+  }
+
+  clear = () => {
+    Object.keys(this.applied).forEach((v) => {
+      this.applied[v] = '';
+    });
+  };
+
   filterAnalyzeResults(analyzeResults) {
     return analyzeResults.filter((result) => {
       return Object.entries(this.applied).every(
