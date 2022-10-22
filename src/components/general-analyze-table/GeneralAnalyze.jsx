@@ -5,11 +5,11 @@ import { observer } from 'mobx-react-lite';
 
 import { GeneralAnalyzeTable } from './GeneralAnalyzeTable';
 
-function GeneralAnalyze() {
+function GeneralAnalyze({ analyzes }) {
   return (
     <Spoiler title="Результаты анализа">
       <Filters />
-      {analyzeStore.analyzes && <GeneralAnalyzeTable analyzeResults={analyzeStore.filteredAnalyzes} />}
+      <GeneralAnalyzeTable analyzeResults={analyzes} />
     </Spoiler>
   );
 }

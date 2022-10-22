@@ -20,7 +20,7 @@ export function Spoiler({ title, children }) {
       <Head>
         <Typography variant="h4">{title}</Typography>
         <Button variant="contained" onClick={() => setOpen(!open)}>
-          {open ? 'Закрыть' : 'Открыть'}
+          {open ? 'Свернуть' : 'Открыть'}
         </Button>
       </Head>
       <Collapse in={open} timeout="auto">
