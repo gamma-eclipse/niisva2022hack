@@ -1,25 +1,26 @@
-import { Table, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
+import { Table, TableBody, TableHead, TableRow } from '@mui/material';
 import { AnalyzeRow } from 'components/analyze-row';
+import { TableCell, TableHeadCell } from 'shared/ui';
 
 export function GeneralAnalyzeTable({ analyzeResults }) {
   return (
     <Table>
       <TableHead>
         <TableRow>
-          <TableCell align="center">ID</TableCell>
-          <TableCell align="center">Кол-во пакетов</TableCell>
-          <TableCell align="center">Объем трафика</TableCell>
-          <TableCell align="center">Протокол</TableCell>
-          <TableCell align="center">Хост</TableCell>
-          <TableCell align="center">Адрес назначения</TableCell>
-          <TableCell align="center">Назначение</TableCell>
-          <TableCell align="center">Название</TableCell>
+          <TableHeadCell>ID</TableHeadCell>
+          <TableHeadCell>Кол-во пакетов</TableHeadCell>
+          <TableHeadCell>Объем трафика</TableHeadCell>
+          <TableHeadCell>Протокол</TableHeadCell>
+          <TableHeadCell>Хост</TableHeadCell>
+          <TableHeadCell>Адрес назначения</TableHeadCell>
+          <TableHeadCell>Назначение</TableHeadCell>
+          <TableHeadCell>Название</TableHeadCell>
         </TableRow>
       </TableHead>
       <TableBody>
         {analyzeResults.length === 0 ? (
           <TableRow>
-            <TableCell colSpan={20} align="center" style={{ color: 'gray' }}>
+            <TableCell colSpan={20} style={{ color: 'gray' }}>
               Ничего не найдено
             </TableCell>
           </TableRow>

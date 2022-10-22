@@ -11,6 +11,11 @@ class AnalyzeStore {
 
   CATEGORY_NAMES = ['name', 'purpose'];
 
+  CATEGORY_NAMES_MAP = {
+    name: 'Название источника',
+    purpose: 'Назначение',
+  };
+
   analyzes = null;
 
   categories = null;
@@ -42,15 +47,15 @@ class AnalyzeStore {
     }
 
     for (const analyze of this.analyzes) {
-      Object.entries(analyze.classification).forEach(([name, value]) => {
-        if (!categoriesMap[name][value]) {
-          categoriesMap[name][value] = {
+      Object.entries(analyze.classification).forEach(([categoryName, categoryValue]) => {
+        if (!categoriesMap[categoryName][categoryValue]) {
+          categoriesMap[categoryName][categoryValue] = {
             packages: 0,
             traffic: 0,
           };
         }
-        categoriesMap[name][value].packages += analyze.packages;
-        categoriesMap[name][value].traffic += analyze.traffic;
+        categoriesMap[categoryName][categoryValue].packages += analyze.packages;
+        categoriesMap[categoryName][categoryValue].traffic += analyze.traffic;
       });
     }
 

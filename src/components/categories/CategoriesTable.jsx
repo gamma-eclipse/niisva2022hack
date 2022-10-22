@@ -5,30 +5,31 @@ import {
   AccordionSummary,
   Table,
   TableBody,
-  TableCell,
   TableHead,
   TableRow,
   Typography,
 } from '@mui/material';
+import { analyzeStore } from 'app/store/analyzeStore';
 import { toJS } from 'mobx';
+import { observer } from 'mobx-react-lite';
+import { TableCell, TableHeadCell } from 'shared/ui';
 
-export function CategoriesTable({ categories }) {
-  // console.log(categories);
+function CategoriesTable({ categories }) {
   return (
     <div>
       {Object.entries(categories).map(([categoryName, categoryData]) => {
         return (
           <Accordion key={categoryName}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography>{categoryName}</Typography>
+              <Typography>{analyzeStore.CATEGORY_NAMES_MAP[categoryName]}</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Table>
                 <TableHead>
                   <TableRow>
-                    <TableCell>Название</TableCell>
-                    <TableCell>Пакетов</TableCell>
-                    <TableCell>Трафик</TableCell>
+                    <TableHeadCell>Название</TableHeadCell>
+                    <TableHeadCell>Кол-во пакетов</TableHeadCell>
+                    <TableHeadCell>Объем трафика</TableHeadCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
@@ -50,3 +51,5 @@ export function CategoriesTable({ categories }) {
     </div>
   );
 }
+
+export default observer(CategoriesTable);

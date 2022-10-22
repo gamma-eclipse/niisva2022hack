@@ -1,9 +1,10 @@
 import { Button, Collapse, Typography, styled } from '@mui/material';
 import { analyzeStore } from 'app/store/analyzeStore';
+import { Spoiler } from 'components/spoiler';
 import { observer } from 'mobx-react-lite';
 import { useState } from 'react';
 
-import { CategoriesTable } from './CategoriesTable';
+import CategoriesTable from './CategoriesTable';
 
 const Wrapper = styled('div')`
   display: flex;
@@ -17,20 +18,10 @@ const Head = styled('div')`
 `;
 
 function Categories() {
-  const [open, setOpen] = useState(false);
-
   return (
-    <Wrapper>
-      <Head>
-        <Typography variant="h4">Категории</Typography>
-        <Button variant="contained" onClick={() => setOpen(!open)}>
-          {open ? 'Закрыть' : 'Открыть'}
-        </Button>
-      </Head>
-      <Collapse in={open} timeout="auto">
-        {analyzeStore.categories && <CategoriesTable categories={analyzeStore.categories} />}
-      </Collapse>
-    </Wrapper>
+    <Spoiler title="Категории">
+      {analyzeStore.categories && <CategoriesTable categories={analyzeStore.categories} />}
+    </Spoiler>
   );
 }
 
