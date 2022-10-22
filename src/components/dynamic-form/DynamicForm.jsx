@@ -1,4 +1,4 @@
-import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
+import AdjustIcon from '@mui/icons-material/Adjust';
 import { Button, TextField, Typography, styled } from '@mui/material';
 import { analyzeStore } from 'app/store/analyzeStore';
 import { dynamicStore } from 'app/store/dynamicStore';
@@ -30,7 +30,7 @@ function UploadForm() {
         style={{ minWidth: 200 }}
         color={dynamicStore.fetching ? 'error' : 'primary'}
         onClick={dynamicStore.fetch}
-        endIcon={dynamicStore.fetching ? <HourglassEmptyIcon /> : null}
+        endIcon={dynamicStore.fetching ? <AdjustIcon /> : null}
       >
         {dynamicStore.fetching ? 'Остановить' : 'Запустить'}
       </Button>
