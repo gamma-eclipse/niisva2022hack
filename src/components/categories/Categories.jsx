@@ -17,7 +17,7 @@ const Head = styled('div')`
 `;
 
 function Categories() {
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState(true);
 
   return (
     <Wrapper>
