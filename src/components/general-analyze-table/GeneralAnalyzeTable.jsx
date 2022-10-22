@@ -17,9 +17,15 @@ export function GeneralAnalyzeTable({ analyzeResults }) {
         </TableRow>
       </TableHead>
       <TableBody>
-        {analyzeResults.map((analyze) => (
-          <AnalyzeRow key={analyze.id} analyze={analyze} />
-        ))}
+        {analyzeResults.length === 0 ? (
+          <TableRow>
+            <TableCell colSpan={20} align="center" style={{ color: 'gray' }}>
+              Ничего не найдено
+            </TableCell>
+          </TableRow>
+        ) : (
+          analyzeResults.map((analyze) => <AnalyzeRow key={analyze.id} analyze={analyze} />)
+        )}
       </TableBody>
     </Table>
   );

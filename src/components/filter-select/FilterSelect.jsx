@@ -3,7 +3,7 @@ import { filtersStore } from 'app/store/filtersStore';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 
-function FilterSelect({ name, label, width = 150 }) {
+function FilterSelect({ name, label, width = 180 }) {
   return (
     <FormControl style={{ width }}>
       <InputLabel id={`select_${name}`}>{label}</InputLabel>
