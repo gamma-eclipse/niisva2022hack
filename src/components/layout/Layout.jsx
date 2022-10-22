@@ -11,7 +11,6 @@ export function Layout({ children }) {
         maxWidth="lg"
         style={{
           padding: 25,
-          paddingTop: '30vh',
           minHeight: '100vh',
           display: 'flex',
           justifyContent: 'center',

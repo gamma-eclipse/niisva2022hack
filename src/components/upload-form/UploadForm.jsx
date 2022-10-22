@@ -1,7 +1,7 @@
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import { Button, TextField, Typography, styled } from '@mui/material';
+import { homeStore } from 'app/store/homeStore';
 import { observer } from 'mobx-react-lite';
-import { homeStore } from 'pages/home/store';
 import React from 'react';
 
 const FormLayout = styled('div')`
