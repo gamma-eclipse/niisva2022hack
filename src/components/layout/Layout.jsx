@@ -4,14 +4,14 @@ import { Header } from 'widgets/header';
 
 export function Layout({ children }) {
   return (
-    <div>
+    <div style={{ minHeight: '100vh' }}>
       <Header />
       <Container
         component="main"
         maxWidth="lg"
         style={{
           padding: 25,
-          minHeight: '100vh',
+          height: '100%',
           display: 'flex',
           justifyContent: 'center',
         }}
