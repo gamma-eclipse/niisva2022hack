@@ -30,7 +30,7 @@ function GeneralAnalyze() {
       </Head>
       <Collapse in={open} timeout="auto">
         <Filters />
-        {analyzeStore.analyzes && <GeneralAnalyzeTable analyzeResults={analyzeStore.analyzes} />}
+        {analyzeStore.analyzes && <GeneralAnalyzeTable analyzeResults={analyzeStore.filteredAnalyzes} />}
       </Collapse>
     </Wrapper>
   );
