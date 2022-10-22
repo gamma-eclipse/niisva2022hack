@@ -4,14 +4,14 @@ import React from 'react';
 export function AnalyzeRow({ analyze }) {
   return (
     <TableRow>
-      <TableCell>{analyze.id}</TableCell>
-      <TableCell>{analyze.packages}</TableCell>
-      <TableCell>{analyze.traffic}</TableCell>
-      <TableCell>{analyze.protocol}</TableCell>
-      <TableCell>{analyze.host}</TableCell>
-      <TableCell>{analyze.target}</TableCell>
-      <TableCell>{analyze.classification.purpose}</TableCell>
-      <TableCell>{analyze.classification.name}</TableCell>
+      <TableCell align="center">{analyze.id}</TableCell>
+      <TableCell align="center">{analyze.packages}</TableCell>
+      <TableCell align="center">{analyze.traffic}</TableCell>
+      <TableCell align="center">{analyze.protocol}</TableCell>
+      <TableCell align="center">{analyze.host}</TableCell>
+      <TableCell align="center">{analyze.target}</TableCell>
+      <TableCell align="center">{analyze.classification.purpose}</TableCell>
+      <TableCell align="center">{analyze.classification.name}</TableCell>
     </TableRow>
   );
 }

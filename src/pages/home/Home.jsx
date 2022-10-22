@@ -10,7 +10,7 @@ import { observer } from 'mobx-react-lite';
 const Wrapper = styled('div', { shouldForwardProp: (p) => p !== 'dataFetched' })`
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 20px;
   transition: all 0.7s ease-in-out;
   padding-top: ${(props) => (props.dataFetched ? '0' : '30vh')};
 `;

@@ -25,7 +25,7 @@ function UploadForm() {
     <FormLayout>
       <Title variant="h5">
         {homeStore.data
-          ? 'Файл успешно загружен. Результат выгружен в таблицу ниже'
+          ? 'Файл успешно загружен. Результаты выгружены в таблицу'
           : 'Прикрепите pickup файл для анализа'}
       </Title>
       <TextField type="file" style={{ cursor: 'pointer' }} />
