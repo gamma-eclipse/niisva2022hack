@@ -31,8 +31,7 @@ export function Header() {
             </IconButton>
           </Navigation>
           <Title color="#fff" textTransform="uppercase" fontWeight="bold">
-            <span style={{ color: '#12169a' }}>E</span>ncrypted <span style={{ color: '#12169a' }}>T</span>raffic{' '}
-            <span style={{ color: '#12169a' }}>A</span>nalyzer
+            ENCRYPTED TRAFFIC ANALYZER
           </Title>
         </HeaderLayout>
       </Container>
