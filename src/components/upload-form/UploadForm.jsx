@@ -1,6 +1,6 @@
 import HourglassEmptyIcon from '@mui/icons-material/HourglassEmpty';
 import { Button, TextField, Typography, styled } from '@mui/material';
-import { homeStore } from 'app/store/homeStore';
+import { analyzeStore } from 'app/store/analyzeStore';
 import { observer } from 'mobx-react-lite';
 import React from 'react';
 
@@ -24,19 +24,19 @@ function UploadForm() {
   return (
     <FormLayout>
       <Title variant="h5">
-        {homeStore.data
-          ? 'Файл успешно загружен. Результат выгружен в таблицу ниже'
+        {analyzeStore.analyzes
+          ? 'Файл успешно загружен. Результаты выгружены в таблицу'
           : 'Прикрепите pickup файл для анализа'}
       </Title>
       <TextField type="file" style={{ cursor: 'pointer' }} />
       <Button
-        disabled={homeStore.fetching}
+        disabled={analyzeStore.fetching}
         variant="contained"
         style={{ minWidth: 200 }}
-        onClick={homeStore.fetch}
-        endIcon={homeStore.fetching ? <HourglassEmptyIcon /> : null}
+        onClick={analyzeStore.fetch}
+        endIcon={analyzeStore.fetching ? <HourglassEmptyIcon /> : null}
       >
-        {homeStore.fetching ? 'Загрузка' : 'Загрузить'}
+        {analyzeStore.fetching ? 'Загрузка' : 'Загрузить'}
       </Button>
     </FormLayout>
   );

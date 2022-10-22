@@ -1,4 +1,4 @@
-export const dataMock = [
+export const analyzesMock = [
   {
     id: 1,
     packages: 142,
@@ -7,7 +7,7 @@ export const dataMock = [
     host: '192.168.214.54',
     target: 'https://localgoi.com',
     classification: {
-      purpose: 'messager',
+      purpose: 'Мессенджер',
       name: 'chrome',
       // ?
     },
@@ -20,7 +20,7 @@ export const dataMock = [
     host: '192.168.65.18',
     target: 'https://nillkiggers.ua',
     classification: {
-      purpose: 'social',
+      purpose: 'Соцсеть',
       name: 'telegram',
       // ?
     },
@@ -33,7 +33,7 @@ export const dataMock = [
     host: '192.168.65.18',
     target: 'https://nillkiggers.ua',
     classification: {
-      purpose: 'social',
+      purpose: 'Браузер',
       name: 'telegram',
       // ?
     },
@@ -46,7 +46,7 @@ export const dataMock = [
     host: '192.168.65.18',
     target: 'https://nillkiggers.ua',
     classification: {
-      purpose: 'social',
+      purpose: 'Соцсеть',
       name: 'telegram',
       // ?
     },
@@ -59,7 +59,7 @@ export const dataMock = [
     host: '192.168.65.18',
     target: 'https://nillkiggers.ua',
     classification: {
-      purpose: 'social',
+      purpose: 'Соцсеть',
       name: 'telegram',
       // ?
     },
@@ -72,7 +72,7 @@ export const dataMock = [
     host: '192.168.65.18',
     target: 'https://nillkiggers.ua',
     classification: {
-      purpose: 'social',
+      purpose: 'Соцсеть',
       name: 'telegram',
       // ?
     },
@@ -85,7 +85,7 @@ export const dataMock = [
     host: '192.168.65.18',
     target: 'https://nillkiggers.ua',
     classification: {
-      purpose: 'social',
+      purpose: 'Соцсеть',
       name: 'telegram',
       // ?
     },
@@ -98,7 +98,7 @@ export const dataMock = [
     host: '192.168.65.18',
     target: 'https://nillkiggers.ua',
     classification: {
-      purpose: 'social',
+      purpose: 'Соцсеть',
       name: 'telegram',
       // ?
     },
@@ -111,7 +111,7 @@ export const dataMock = [
     host: '192.168.65.18',
     target: 'https://nillkiggers.ua',
     classification: {
-      purpose: 'social',
+      purpose: 'Соцсеть',
       name: 'telegram',
       // ?
     },
@@ -124,7 +124,7 @@ export const dataMock = [
     host: '192.168.65.18',
     target: 'https://nillkiggers.ua',
     classification: {
-      purpose: 'social',
+      purpose: 'Соцсеть',
       name: 'telegram',
       // ?
     },
@@ -137,7 +137,7 @@ export const dataMock = [
     host: '192.168.65.18',
     target: 'https://nillkiggers.ua',
     classification: {
-      purpose: 'social',
+      purpose: 'Соцсеть',
       name: 'telegram',
       // ?
     },

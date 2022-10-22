@@ -6,7 +6,6 @@ import { observer } from 'mobx-react-lite';
 const Wrapper = styled('div')`
   display: flex;
   gap: 15px;
-  padding: 10px 0;
 `;
 
 function Filters() {
