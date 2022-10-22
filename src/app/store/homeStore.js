@@ -1,6 +1,6 @@
 import { makeAutoObservable } from 'mobx';
 import { axiosMock } from 'shared/helpers/axiosMock';
-import { dataMock } from 'shared/mocks/dataMock';
+import { analyzesMock } from 'shared/mocks/analyzesMock';
 
 import { filtersStore } from './filtersStore';
 
@@ -21,7 +21,7 @@ class HomeStore {
     if (this.fetching) return;
 
     this.fetching = true;
-    const data = await axiosMock(dataMock);
+    const data = await axiosMock(analyzesMock);
     this.fetching = false;
 
     if (data) {
