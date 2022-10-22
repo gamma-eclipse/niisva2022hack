@@ -5,13 +5,15 @@ class FiltersStore {
     makeAutoObservable(this);
   }
 
-  // same structure as classification
+  //* same structure as classification
   applied = {
     purpose: '',
     name: '',
   };
 
+  //* same structure as classification
   options = {
+    purpose: ['Браузер', 'Мессенджер', 'Сетевая игра', 'Соцсеть', 'Видеохостинг'],
     name: ['Chrome', 'Firefox', 'Youtube', 'Coub', 'Telegram'],
   };
 

@@ -9,9 +9,8 @@ import { observer } from 'mobx-react-lite';
 
 const Wrapper = styled('div', { shouldForwardProp: (p) => p !== 'dataFetched' })`
   display: flex;
-  align-items: center;
   flex-direction: column;
-  gap: 30px;
+  gap: 15px;
   transition: all 0.7s ease-in-out;
   padding-top: ${(props) => (props.dataFetched ? '0' : '30vh')};
 `;
