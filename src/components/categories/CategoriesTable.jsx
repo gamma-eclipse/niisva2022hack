@@ -5,7 +5,6 @@ import {
   AccordionSummary,
   Table,
   TableBody,
-  TableCell,
   TableHead,
   TableRow,
   Typography,
@@ -13,6 +12,7 @@ import {
 import { analyzeStore } from 'app/store/analyzeStore';
 import { toJS } from 'mobx';
 import { observer } from 'mobx-react-lite';
+import { TableCell, TableHeadCell } from 'shared/ui';
 
 function CategoriesTable({ categories }) {
   return (
@@ -27,18 +27,18 @@ function CategoriesTable({ categories }) {
               <Table>
                 <TableHead>
                   <TableRow>
-                    <TableCell align="center">Название</TableCell>
-                    <TableCell align="center">Кол-во пакетов</TableCell>
-                    <TableCell align="center">Объем трафика</TableCell>
+                    <TableHeadCell>Название</TableHeadCell>
+                    <TableHeadCell>Кол-во пакетов</TableHeadCell>
+                    <TableHeadCell>Объем трафика</TableHeadCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {Object.entries(categoryData).map(([itemName, itemData]) => {
                     return (
                       <TableRow key={Math.random()}>
-                        <TableCell align="center">{itemName}</TableCell>
-                        <TableCell align="center"> {itemData.packages}</TableCell>
-                        <TableCell align="center"> {itemData.traffic}</TableCell>
+                        <TableCell>{itemName}</TableCell>
+                        <TableCell> {itemData.packages}</TableCell>
+                        <TableCell> {itemData.traffic}</TableCell>
                       </TableRow>
                     );
                   })}
