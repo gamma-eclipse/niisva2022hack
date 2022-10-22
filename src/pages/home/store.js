@@ -1,6 +1,6 @@
-import { axiosMock } from 'helpers/axiosMock';
 import { makeAutoObservable } from 'mobx';
-import { dataMock } from 'mocks/dataMock';
+import { axiosMock } from 'shared/helpers/axiosMock';
+import { dataMock } from 'shared/mocks/dataMock';
 
 class HomeStore {
   constructor() {
@@ -12,7 +12,6 @@ class HomeStore {
   fetching = false;
 
   fetch = async () => {
-    console.log(this);
     if (this.fetching) return;
 
     this.fetching = true;
