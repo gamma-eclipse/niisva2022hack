@@ -38,7 +38,7 @@ function Home() {
         <FileUpload>
           <Title variant="h5">
             {homeStore.data
-              ? 'Файл успешно загружен. Анализ выгружен в таблицу ниже'
+              ? 'Файл успешно загружен. Результат выгружен в таблицу ниже'
               : 'Прикрепите pickup файл для анализа'}
           </Title>
           <TextField type="file" style={{ cursor: 'pointer' }} />
