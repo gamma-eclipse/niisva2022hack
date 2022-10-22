@@ -23,7 +23,7 @@ function Home() {
         {homeStore.data && (
           <>
             <Filters />
-            <GeneralAnalyzeTable analyzeResults={homeStore.data} />
+            <GeneralAnalyzeTable analyzeResults={homeStore.filteredData} />
           </>
         )}
       </Wrapper>

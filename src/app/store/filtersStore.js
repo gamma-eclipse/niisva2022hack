@@ -1,4 +1,4 @@
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable, toJS } from 'mobx';
 
 class FiltersStore {
   constructor() {
@@ -19,8 +19,9 @@ class FiltersStore {
 
   filterAnalyzeResults(analyzeResults) {
     return analyzeResults.filter((result) => {
-      return Object.entries(this.appliedFilters).every(
-        ([filterName, filterValue]) => !filterValue || result.classification[filterName] === filterValue
+      return Object.entries(this.applied).every(
+        ([filterName, filterValue]) =>
+          !filterValue || result.classification[filterName].toLowerCase() === filterValue.toLowerCase()
       );
     });
   }
