@@ -1,9 +1,7 @@
 import { styled } from '@mui/material';
 import { analyzeStore } from 'app/store/analyzeStore';
-import { filtersStore } from 'app/store/filtersStore';
 import { Categories } from 'components/categories';
-import { Filters } from 'components/filters';
-import { GeneralAnalyzeTable } from 'components/general-analyze-table';
+import GeneralAnalyze from 'components/general-analyze-table/GeneralAnalyze';
 import { Layout } from 'components/layout';
 import { UploadForm } from 'components/upload-form';
 import { observer } from 'mobx-react-lite';
@@ -24,8 +22,7 @@ function Home() {
         {analyzeStore.analyzes && (
           <>
             <Categories />
-            <Filters />
-            <GeneralAnalyzeTable analyzeResults={analyzeStore.filteredAnalyzes} />
+            <GeneralAnalyze />
           </>
         )}
       </Wrapper>
