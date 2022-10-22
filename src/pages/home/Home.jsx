@@ -1,10 +1,10 @@
 import { styled } from '@mui/material';
+import { homeStore } from 'app/store/homeStore';
+import { Filters } from 'components/filters';
 import { GeneralAnalyzeTable } from 'components/general-analyze-table';
 import { Layout } from 'components/layout';
 import { UploadForm } from 'components/upload-form';
 import { observer } from 'mobx-react-lite';
-
-import { homeStore } from './store';
 
 const Wrapper = styled('div', { shouldForwardProp: (p) => p !== 'dataFetched' })`
   display: flex;
@@ -20,7 +20,12 @@ function Home() {
     <Layout>
       <Wrapper dataFetched={homeStore.data}>
         <UploadForm />
-        {homeStore.data && <GeneralAnalyzeTable analyzeResults={homeStore.data} />}
+        {homeStore.data && (
+          <>
+            <Filters />
+            <GeneralAnalyzeTable analyzeResults={homeStore.data} />
+          </>
+        )}
       </Wrapper>
     </Layout>
   );
