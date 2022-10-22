@@ -24,7 +24,7 @@ const Title = styled(Typography)`
 function UploadForm() {
   return (
     <FormLayout>
-      <Title variant="h5">Режим активного сканирования</Title>
+      <Title variant="h5">{dynamicStore.listening ? 'Активное сканирование...' : 'Режим активного сканирования'}</Title>
       <Button
         variant="contained"
         style={{ minWidth: 200 }}
