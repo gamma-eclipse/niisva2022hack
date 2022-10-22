@@ -1,6 +1,7 @@
 import { styled } from '@mui/material';
+import { analyzeStore } from 'app/store/analyzeStore';
 import { filtersStore } from 'app/store/filtersStore';
-import { homeStore } from 'app/store/homeStore';
+import { Categories } from 'components/categories';
 import { Filters } from 'components/filters';
 import { GeneralAnalyzeTable } from 'components/general-analyze-table';
 import { Layout } from 'components/layout';
@@ -18,12 +19,13 @@ const Wrapper = styled('div', { shouldForwardProp: (p) => p !== 'dataFetched' })
 function Home() {
   return (
     <Layout>
-      <Wrapper dataFetched={homeStore.data}>
+      <Wrapper dataFetched={analyzeStore.analyzes}>
         <UploadForm />
-        {homeStore.data && (
+        {analyzeStore.analyzes && (
           <>
+            <Categories />
             <Filters />
-            <GeneralAnalyzeTable analyzeResults={homeStore.filteredData} />
+            <GeneralAnalyzeTable analyzeResults={analyzeStore.filteredAnalyzes} />
           </>
         )}
       </Wrapper>

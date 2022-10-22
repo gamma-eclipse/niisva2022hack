@@ -4,15 +4,15 @@ import { analyzesMock } from 'shared/mocks/analyzesMock';
 
 import { filtersStore } from './filtersStore';
 
-class HomeStore {
+class AnalyzeStore {
   constructor() {
     makeAutoObservable(this);
   }
 
-  data = null;
+  analyzes = null;
 
-  get filteredData() {
-    return filtersStore.filterAnalyzeResults(this.data);
+  get filteredAnalyzes() {
+    return filtersStore.filterAnalyzeResults(this.analyzes);
   }
 
   fetching = false;
@@ -25,9 +25,9 @@ class HomeStore {
     this.fetching = false;
 
     if (data) {
-      this.data = data;
+      this.analyzes = data;
     }
   };
 }
 
-export const homeStore = new HomeStore();
+export const analyzeStore = new AnalyzeStore();
