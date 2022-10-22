@@ -1,6 +1,7 @@
 import { Button, Collapse, Typography, styled } from '@mui/material';
 import { analyzeStore } from 'app/store/analyzeStore';
 import { Filters } from 'components/filters';
+import { Spoiler } from 'components/spoiler';
 import { observer } from 'mobx-react-lite';
 import { useState } from 'react';
 
@@ -18,21 +19,11 @@ const Head = styled('div')`
 `;
 
 function GeneralAnalyze() {
-  const [open, setOpen] = useState(true);
-
   return (
-    <Wrapper>
-      <Head>
-        <Typography variant="h4">Результаты анализа</Typography>
-        <Button variant="contained" onClick={() => setOpen(!open)}>
-          {open ? 'Закрыть' : 'Открыть'}
-        </Button>
-      </Head>
-      <Collapse in={open} timeout="auto">
-        <Filters />
-        {analyzeStore.analyzes && <GeneralAnalyzeTable analyzeResults={analyzeStore.filteredAnalyzes} />}
-      </Collapse>
-    </Wrapper>
+    <Spoiler title="Результаты анализа">
+      <Filters />
+      {analyzeStore.analyzes && <GeneralAnalyzeTable analyzeResults={analyzeStore.filteredAnalyzes} />}
+    </Spoiler>
   );
 }
 
