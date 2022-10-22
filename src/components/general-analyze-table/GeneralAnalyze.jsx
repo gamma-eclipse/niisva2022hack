@@ -9,7 +9,7 @@ function GeneralAnalyze({ analyzes }) {
   return (
     <Spoiler title="Результаты анализа">
       <Filters />
-      <GeneralAnalyzeTable analyzeResults={analyzes} />
+      <GeneralAnalyzeTable analyzes={analyzes} />
     </Spoiler>
   );
 }
