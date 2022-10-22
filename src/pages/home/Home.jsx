@@ -1,4 +1,5 @@
 import { styled } from '@mui/material';
+import { filtersStore } from 'app/store/filtersStore';
 import { homeStore } from 'app/store/homeStore';
 import { Filters } from 'components/filters';
 import { GeneralAnalyzeTable } from 'components/general-analyze-table';

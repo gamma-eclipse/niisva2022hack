@@ -1,8 +1,18 @@
+import { makeAutoObservable } from 'mobx';
+
 class FiltersStore {
+  constructor() {
+    makeAutoObservable(this);
+  }
+
   // same structure as classification
-  appliedFilters = {
-    purpose: null,
-    name: null,
+  applied = {
+    purpose: '',
+    name: '',
+  };
+
+  options = {
+    name: ['Chrome', 'Firefox', 'Youtube', 'Coub', 'Telegram'],
   };
 
   filterAnalyzeResults(analyzeResults) {
