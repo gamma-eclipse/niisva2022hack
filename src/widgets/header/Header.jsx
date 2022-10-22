@@ -30,8 +30,9 @@ export function Header() {
               <ConnectingAirportsIcon style={{ color: '#fff', width: 30, height: 30 }} />
             </IconButton>
           </Navigation>
-          <Title variant="h6" color="#fff" textTransform="uppercase" fontWeight="bold">
-            Encrypted Traffic Analyzer
+          <Title color="#fff" textTransform="uppercase" fontWeight="bold">
+            <span style={{ color: '#040865' }}>E</span>ncrypted <span style={{ color: '#040865' }}>T</span>raffic{' '}
+            <span style={{ color: '#040865' }}>A</span>nalyzer
           </Title>
         </HeaderLayout>
       </Container>
