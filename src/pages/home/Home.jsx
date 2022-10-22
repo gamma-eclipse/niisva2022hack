@@ -2,6 +2,7 @@ import { styled } from '@mui/material';
 import { analyzeStore } from 'app/store/analyzeStore';
 import { Categories } from 'components/categories';
 import GeneralAnalyze from 'components/general-analyze-table/GeneralAnalyze';
+import { GeneralInfo } from 'components/general-info';
 import { Layout } from 'components/layout';
 import { UploadForm } from 'components/upload-form';
 import { observer } from 'mobx-react-lite';
@@ -21,6 +22,7 @@ function Home() {
         <UploadForm />
         {analyzeStore.analyzes && analyzeStore.categories && (
           <>
+            <GeneralInfo analyzes={analyzeStore.filteredAnalyzes} />
             <Categories categories={analyzeStore.categories} />
             <GeneralAnalyze analyzes={analyzeStore.filteredAnalyzes} />
           </>
