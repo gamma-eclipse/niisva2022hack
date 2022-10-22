@@ -3,7 +3,7 @@ import { analyzeStore } from 'app/store/analyzeStore';
 import { observer } from 'mobx-react-lite';
 import { useState } from 'react';
 
-import { CategoriesTable } from './CategoriesTable';
+import CategoriesTable from './CategoriesTable';
 
 const Wrapper = styled('div')`
   display: flex;

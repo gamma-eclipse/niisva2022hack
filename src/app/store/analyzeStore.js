@@ -11,6 +11,11 @@ class AnalyzeStore {
 
   CATEGORY_NAMES = ['name', 'purpose'];
 
+  CATEGORY_NAMES_MAP = {
+    name: 'Название источника',
+    purpose: 'Назначение',
+  };
+
   analyzes = null;
 
   categories = null;

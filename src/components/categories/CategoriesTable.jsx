@@ -10,34 +10,35 @@ import {
   TableRow,
   Typography,
 } from '@mui/material';
+import { analyzeStore } from 'app/store/analyzeStore';
 import { toJS } from 'mobx';
+import { observer } from 'mobx-react-lite';
 
-export function CategoriesTable({ categories }) {
-  // console.log(categories);
+function CategoriesTable({ categories }) {
   return (
     <div>
       {Object.entries(categories).map(([categoryName, categoryData]) => {
         return (
           <Accordion key={categoryName}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography>{categoryName}</Typography>
+              <Typography>{analyzeStore.CATEGORY_NAMES_MAP[categoryName]}</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Table>
                 <TableHead>
                   <TableRow>
-                    <TableCell>Название</TableCell>
-                    <TableCell>Пакетов</TableCell>
-                    <TableCell>Трафик</TableCell>
+                    <TableCell align="center">Название</TableCell>
+                    <TableCell align="center">Кол-во пакетов</TableCell>
+                    <TableCell align="center">Объем трафика</TableCell>
                   </TableRow>
                 </TableHead>
                 <TableBody>
                   {Object.entries(categoryData).map(([itemName, itemData]) => {
                     return (
                       <TableRow key={Math.random()}>
-                        <TableCell>{itemName}</TableCell>
-                        <TableCell> {itemData.packages}</TableCell>
-                        <TableCell> {itemData.traffic}</TableCell>
+                        <TableCell align="center">{itemName}</TableCell>
+                        <TableCell align="center"> {itemData.packages}</TableCell>
+                        <TableCell align="center"> {itemData.traffic}</TableCell>
                       </TableRow>
                     );
                   })}
@@ -50,3 +51,5 @@ export function CategoriesTable({ categories }) {
     </div>
   );
 }
+
+export default observer(CategoriesTable);
