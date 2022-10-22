@@ -28,11 +28,11 @@ function UploadForm() {
       <Button
         variant="contained"
         style={{ minWidth: 200 }}
-        color={dynamicStore.fetching ? 'error' : 'primary'}
-        onClick={dynamicStore.fetch}
-        endIcon={dynamicStore.fetching ? <AdjustIcon /> : null}
+        color={dynamicStore.listening ? 'error' : 'primary'}
+        onClick={dynamicStore.listening ? dynamicStore.stop : dynamicStore.start}
+        endIcon={dynamicStore.listening ? <AdjustIcon /> : null}
       >
-        {dynamicStore.fetching ? 'Остановить' : 'Запустить'}
+        {dynamicStore.listening ? 'Остановить' : 'Запустить'}
       </Button>
     </FormLayout>
   );

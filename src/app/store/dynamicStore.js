@@ -19,13 +19,27 @@ class DynamicStore {
     return filtersStore.filterAnalyzeResults(this.analyzes);
   }
 
+  listening = false;
+
+  listener = null;
+
+  start = () => {
+    this.listening = true;
+    this.listener = setInterval(() => this.fetch(), 1000);
+  };
+
+  stop = () => {
+    this.listening = false;
+    clearInterval(this.listener);
+  };
+
   fetching = false;
 
   fetch = async () => {
     if (this.fetching) return;
 
     this.fetching = true;
-    const data = await axiosMock(analyzesMock);
+    const data = await axiosMock(analyzesMock.slice(0, 2).map((v) => ({ ...v, id: Math.random() })));
     this.fetching = false;
 
     if (data) {
