@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 
 const HeaderWrapper = styled('header')`
   background-color: ${(props) => props.theme.palette.primary.main};
+  padding: 5px 0;
 `;
 const HeaderLayout = styled('div')`
   display: flex;
@@ -22,14 +23,14 @@ export function Header() {
       <Container maxWidth="lg">
         <HeaderLayout>
           <Navigation>
-            <IconButton size="large" component={Link} to="/">
+            <IconButton component={Link} to="/">
               <PolicyIcon style={{ color: '#fff', width: 30, height: 30 }} />
             </IconButton>
-            <IconButton size="large" component={Link} to="/dynamic">
+            <IconButton component={Link} to="/dynamic">
               <ConnectingAirportsIcon style={{ color: '#fff', width: 30, height: 30 }} />
             </IconButton>
           </Navigation>
-          <Title variant="h6" color="#fff" textTransform="uppercase">
+          <Title variant="h6" color="#fff" textTransform="uppercase" fontWeight="bold">
             Encrypted Traffic Analyzer
           </Title>
         </HeaderLayout>
