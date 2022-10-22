@@ -48,6 +48,7 @@
     "no-duplicate-imports": "error",
     "no-continue": "warn",
     "no-plusplus": "off",
+    "class-methods-use-this": "off",
 
     // Warn instead error for fast debugging
     "no-console": "warn",
