@@ -5,7 +5,7 @@ import CategoriesTable from './CategoriesTable';
 
 export function Categories({ categories }) {
   return (
-    <Spoiler title="Категории">
+    <Spoiler title="По категориям">
       <CategoriesTable categories={categories} />
     </Spoiler>
   );
