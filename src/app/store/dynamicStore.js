@@ -3,6 +3,7 @@ import { axiosMock } from 'shared/helpers/axiosMock';
 import { generateCategories } from 'shared/helpers/generateCategories';
 import { analyzesMock } from 'shared/mocks/analyzesMock';
 
+import { analyzeStore } from './analyzeStore';
 import { filtersStore } from './filtersStore';
 
 class DynamicStore {
