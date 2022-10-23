@@ -11,13 +11,6 @@ class AnalyzeStore {
     makeAutoObservable(this);
   }
 
-  CATEGORY_NAMES = ['name', 'purpose'];
-
-  CATEGORY_NAMES_MAP = {
-    name: 'Название источника',
-    purpose: 'Назначение',
-  };
-
   analyzes = null;
 
   categories = null;
@@ -35,6 +28,13 @@ class AnalyzeStore {
 
   HEADERS = ['id', 'traffic', 'posix', 'application', 'isvpn', 'predicted_category'];
 
+  CATEGORY_NAMES = ['application', 'isvpn', 'predicted_category'];
+
+  // CATEGORY_NAMES_MAP = {
+  //   application: 'Название источника',
+  //   isvpn: 'Назначение',
+  // };
+
   fetch = async (file) => {
     if (this.fetching) return;
 
@@ -43,8 +43,6 @@ class AnalyzeStore {
 
     Papa.parse(file, {
       complete: (results) => {
-        console.log('Finished:', results.data);
-
         const body = results.data.slice(1, results.data.length - 1);
 
         this.total = body.length;
@@ -66,6 +64,7 @@ class AnalyzeStore {
 
         this.fetching = false;
         this.analyzes = mapped.slice(0, 500);
+        this.genCategories();
       },
     });
   };
