@@ -39,41 +39,45 @@ class AnalyzeStore {
     if (this.fetching) return;
 
     this.fetching = true;
-    const data = await axiosMock(analyzesMock);
+    // const data = await axiosMock(analyzesMock);
 
-    Papa.parse(file, {
-      complete: (results) => {
-        const body = results.data.slice(1, results.data.length - 1);
+    try {
+      Papa.parse(file, {
+        complete: (results) => {
+          const body = results.data.slice(1, results.data.length - 1);
 
-        this.total = body.length;
+          this.total = body.length;
 
-        let traffic = 0;
+          let traffic = 0;
 
-        console.log(body);
+          console.log(body);
 
-        const mapped = body.map((v) => {
-          traffic += parseInt(v[2], 10);
-          return {
-            id: v[1],
-            traffic: v[2],
-            posix: v[3],
-            source: `${v[4]}:${v[5]}`,
-            destination: `${v[6]}:${v[7]}`,
-            isvpn: v[10],
-            predicted_category: v[11],
-            predicted_app: v[9],
-          };
-        });
+          const mapped = body.map((v) => {
+            traffic += parseInt(v[2], 10);
+            return {
+              id: v[1],
+              traffic: v[2],
+              posix: v[3],
+              source: `${v[4]}:${v[5]}`,
+              destination: `${v[6]}:${v[7]}`,
+              isvpn: v[10],
+              predicted_category: v[11],
+              predicted_app: v[9],
+            };
+          });
 
-        console.log(mapped);
+          console.log(mapped);
 
-        this.totalTraffic = traffic;
+          this.totalTraffic = traffic;
 
-        this.fetching = false;
-        this.analyzes = mapped.slice(0, 500);
-        this.genCategories();
-      },
-    });
+          this.fetching = false;
+          this.analyzes = mapped.slice(0, 500);
+          this.genCategories();
+        },
+      });
+    } catch (err) {
+      this.fetching = false;
+    }
   };
 
   genCategories() {
