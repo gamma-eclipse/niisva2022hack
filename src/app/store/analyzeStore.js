@@ -26,9 +26,9 @@ class AnalyzeStore {
 
   totalTraffic = 0;
 
-  HEADERS = ['id', 'traffic', 'posix', 'application', 'isvpn', 'predicted_category'];
+  HEADERS = ['id', 'traffic', 'posix', 'source', 'destination', 'predicted_application', 'isvpn', 'predicted_category'];
 
-  CATEGORY_NAMES = ['application', 'isvpn', 'predicted_category'];
+  CATEGORY_NAMES = ['predicted_application', 'isvpn', 'predicted_category'];
 
   // CATEGORY_NAMES_MAP = {
   //   application: 'Название источника',
@@ -48,17 +48,35 @@ class AnalyzeStore {
         this.total = body.length;
 
         let traffic = 0;
+        // const mapped = body.map((v) => {
+        //   traffic += parseInt(v[1], 10);
+        //   return {
+        //     id: v[0],
+        //     traffic: v[1],
+        //     posix: v[2],
+        //     application: v[5],
+        //     isvpn: v[6],
+        //     predicted_category: v[7],
+        //   };
+        // });'
+
+        console.log(body);
+
         const mapped = body.map((v) => {
-          traffic += parseInt(v[1], 10);
+          traffic += parseInt(v[2], 10);
           return {
-            id: v[0],
-            traffic: v[1],
-            posix: v[2],
-            application: v[5],
-            isvpn: v[6],
-            predicted_category: v[7],
+            id: v[1],
+            traffic: v[2],
+            posix: v[3],
+            source: `${v[4]}:${v[5]}`,
+            destination: `${v[6]}:${v[7]}`,
+            predicted_application: v[8],
+            isvpn: v[9],
+            predicted_category: v[10],
           };
         });
+
+        console.log(mapped);
 
         this.totalTraffic = traffic;
 

@@ -4,7 +4,7 @@ import { useState } from 'react';
 const Wrapper = styled('div')`
   display: flex;
   flex-direction: column;
-  gap: 5px;
+  gap: 10px;
 `;
 const Head = styled('div')`
   display: flex;
