@@ -26,9 +26,9 @@ class AnalyzeStore {
 
   totalTraffic = 0;
 
-  HEADERS = ['id', 'traffic', 'posix', 'source', 'destination', 'predicted_application', 'isvpn', 'predicted_category'];
+  HEADERS = ['id', 'traffic', 'posix', 'source', 'destination', 'predicted_app', 'isvpn', 'predicted_category'];
 
-  CATEGORY_NAMES = ['predicted_application', 'isvpn', 'predicted_category'];
+  CATEGORY_NAMES = ['predicted_app', 'isvpn', 'predicted_category'];
 
   // CATEGORY_NAMES_MAP = {
   //   application: 'Название источника',
@@ -70,9 +70,9 @@ class AnalyzeStore {
             posix: v[3],
             source: `${v[4]}:${v[5]}`,
             destination: `${v[6]}:${v[7]}`,
-            predicted_application: v[8],
             isvpn: v[9],
             predicted_category: v[10],
+            predicted_app: v[11],
           };
         });
 
