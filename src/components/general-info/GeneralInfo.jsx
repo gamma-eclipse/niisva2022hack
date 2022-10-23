@@ -7,16 +7,14 @@ const Wrapper = styled('div')`
   gap: 15px;
 `;
 
-export function GeneralInfo({ analyzes }) {
+export function GeneralInfo({ analyzes, total, totalTraffic }) {
   const data = useMemo(() => {
     const x = {
-      totalPackages: 0,
       totalTraffic: 0,
     };
 
     for (const analyze of analyzes) {
-      x.totalPackages += analyze.packages;
-      x.totalTraffic += analyze.traffic;
+      x.totalTraffic += +analyze.traffic;
     }
 
     return x;
@@ -26,8 +24,9 @@ export function GeneralInfo({ analyzes }) {
     <Wrapper>
       <Typography variant="h4">Общая информация</Typography>
       <div>
-        <Typography variant="h6">Получено пакетов: {data.totalPackages}</Typography>
-        <Typography variant="h6">Получено трафика: {data.totalTraffic}</Typography>
+        <Typography variant="h6">Всего пакетов: {total}</Typography>
+        <Typography variant="h6">Передано трафика: {totalTraffic} байт</Typography>
+        <Typography variant="h6">Трафик отображенных пакетов: {data.totalTraffic} байт</Typography>
       </div>
     </Wrapper>
   );

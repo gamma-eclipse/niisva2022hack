@@ -1,4 +1,5 @@
 import { Table, TableBody, TableHead, TableRow } from '@mui/material';
+import { analyzeStore } from 'app/store/analyzeStore';
 import { AnalyzeRow } from 'components/analyze-row';
 import { TableCell, TableHeadCell } from 'shared/ui';
 
@@ -7,14 +8,9 @@ export function GeneralAnalyzeTable({ analyzes }) {
     <Table>
       <TableHead>
         <TableRow>
-          <TableHeadCell>ID</TableHeadCell>
-          <TableHeadCell>Кол-во пакетов</TableHeadCell>
-          <TableHeadCell>Объем трафика</TableHeadCell>
-          <TableHeadCell>Протокол</TableHeadCell>
-          <TableHeadCell>Хост</TableHeadCell>
-          <TableHeadCell>Адрес назначения</TableHeadCell>
-          <TableHeadCell>Назначение</TableHeadCell>
-          <TableHeadCell>Название</TableHeadCell>
+          {analyzeStore.HEADERS.map((v) => (
+            <TableHeadCell key={v}>{v}</TableHeadCell>
+          ))}
         </TableRow>
       </TableHead>
       <TableBody>

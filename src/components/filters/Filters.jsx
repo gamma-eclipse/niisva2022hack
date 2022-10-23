@@ -12,8 +12,9 @@ const Wrapper = styled('div')`
 function Filters() {
   return (
     <Wrapper>
-      <FilterSelect name="name" label="Название" />
-      <FilterSelect name="purpose" label="Назначение" />
+      <FilterSelect name="application" label="Приложение" />
+      <FilterSelect name="isvpn" label="Впн" />
+      <FilterSelect name="predicted_category" label="Назначение" />
       <Button disabled={!filtersStore.changed} onClick={filtersStore.clear} variant="contained">
         Сбросить
       </Button>

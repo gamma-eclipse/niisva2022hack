@@ -21,7 +21,7 @@ function CategoriesTable({ categories }) {
         return (
           <Accordion key={categoryName}>
             <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography>{analyzeStore.CATEGORY_NAMES_MAP[categoryName]}</Typography>
+              <Typography>{categoryName}</Typography>
             </AccordionSummary>
             <AccordionDetails>
               <Table>
@@ -38,7 +38,7 @@ function CategoriesTable({ categories }) {
                       <TableRow key={Math.random()}>
                         <TableCell>{itemName}</TableCell>
                         <TableCell> {itemData.packages}</TableCell>
-                        <TableCell> {itemData.traffic}</TableCell>
+                        <TableCell> {itemData.traffic} байт</TableCell>
                       </TableRow>
                     );
                   })}
