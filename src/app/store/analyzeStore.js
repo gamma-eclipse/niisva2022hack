@@ -48,17 +48,6 @@ class AnalyzeStore {
         this.total = body.length;
 
         let traffic = 0;
-        // const mapped = body.map((v) => {
-        //   traffic += parseInt(v[1], 10);
-        //   return {
-        //     id: v[0],
-        //     traffic: v[1],
-        //     posix: v[2],
-        //     application: v[5],
-        //     isvpn: v[6],
-        //     predicted_category: v[7],
-        //   };
-        // });'
 
         console.log(body);
 
