@@ -23,7 +23,11 @@ function Home() {
         {/* {analyzeStore.analyzes && analyzeStore.categories && ( */}
         {analyzeStore.analyzes && (
           <>
-            <GeneralInfo analyzes={analyzeStore.filteredAnalyzes} />
+            <GeneralInfo
+              analyzes={analyzeStore.filteredAnalyzes}
+              total={analyzeStore.total}
+              totalTraffic={analyzeStore.totalTraffic}
+            />
             {/* <Categories categories={analyzeStore.categories} /> */}
             <GeneralAnalyze analyzes={analyzeStore.filteredAnalyzes} />
           </>

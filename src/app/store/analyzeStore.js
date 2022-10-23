@@ -29,6 +29,10 @@ class AnalyzeStore {
 
   fetching = false;
 
+  total = 0;
+
+  totalTraffic = 0;
+
   HEADERS = ['id', 'traffic', 'posix', 'application', 'isvpn', 'predicted_category'];
 
   fetch = async (file) => {
@@ -41,9 +45,13 @@ class AnalyzeStore {
       complete: (results) => {
         console.log('Finished:', results.data);
 
-        const body = results.data.slice(1, results.data.length);
+        const body = results.data.slice(1, results.data.length - 1);
 
+        this.total = body.length;
+
+        let traffic = 0;
         const mapped = body.map((v) => {
+          traffic += parseInt(v[1], 10);
           return {
             id: v[0],
             traffic: v[1],
@@ -54,8 +62,10 @@ class AnalyzeStore {
           };
         });
 
+        this.totalTraffic = traffic;
+
         this.fetching = false;
-        this.analyzes = mapped.slice(0, 1000);
+        this.analyzes = mapped.slice(0, 500);
       },
     });
   };
