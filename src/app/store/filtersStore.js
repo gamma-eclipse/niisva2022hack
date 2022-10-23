@@ -16,7 +16,7 @@ class FiltersStore {
   options = {
     predicted_app: ['vimeo', 'netflix', 'youtube', 'voip', 'skype', 'ssh', 'rdp', 'sftp', 'rsync', 'scp'],
     isvpn: ['vpn', 'nonvpn'],
-    predicted_category: ['streaming', 'voip', 'chat', 'command', 'terminal'],
+    predicted_category: ['streaming', 'voip', 'chat', 'command and control', 'file transfer'],
   };
 
   get changed() {

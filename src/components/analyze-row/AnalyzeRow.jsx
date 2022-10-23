@@ -12,8 +12,8 @@ export function AnalyzeRow({ analyze }) {
       <TableCell>{analyze.source}</TableCell>
       <TableCell>{analyze.destination}</TableCell>
       <TableCell>{analyze.predicted_app}</TableCell>
-      <TableCell>{analyze.predicted_category}</TableCell>
       <TableCell>{analyze.isvpn}</TableCell>
+      <TableCell>{analyze.predicted_category}</TableCell>
     </TableRow>
   );
 }

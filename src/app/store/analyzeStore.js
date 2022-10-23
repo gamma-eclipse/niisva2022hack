@@ -70,9 +70,9 @@ class AnalyzeStore {
             posix: v[3],
             source: `${v[4]}:${v[5]}`,
             destination: `${v[6]}:${v[7]}`,
-            isvpn: v[9],
-            predicted_category: v[10],
-            predicted_app: v[11],
+            isvpn: v[10],
+            predicted_category: v[11],
+            predicted_app: v[9],
           };
         });
 
