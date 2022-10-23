@@ -15,7 +15,7 @@ class FiltersStore {
   //* same structure as classification
   options = {
     application: ['netflix', 'skype', 'ssh', 'youtube'],
-    isvpn: ['vpn', 'novpn'],
+    isvpn: ['vpn', 'nonvpn'],
     predicted_category: ['Streaming', 'Chat', 'Command and control'],
   };
 
@@ -30,6 +30,8 @@ class FiltersStore {
   };
 
   filterAnalyzeResults(analyzeResults) {
+    // console.log(Object.entries(this.applied));
+    // return analyzeResults;
     return analyzeResults.filter((result) => {
       return Object.entries(this.applied).every(
         ([filterName, filterValue]) => !filterValue || result[filterName].toLowerCase() === filterValue.toLowerCase()

@@ -4,7 +4,6 @@ import React from 'react';
 import { TableCell } from 'shared/ui';
 
 export function AnalyzeRow({ analyze }) {
-  console.log(toJS(analyze));
   return (
     <TableRow>
       {/* {analyze.map((v) => (
@@ -13,7 +12,7 @@ export function AnalyzeRow({ analyze }) {
       <TableCell>{analyze.id}</TableCell>
       <TableCell>{analyze.traffic} байт</TableCell>
       <TableCell>{analyze.posix}</TableCell>
-      <TableCell>{analyze.category}</TableCell>
+      <TableCell>{analyze.application}</TableCell>
       <TableCell>{analyze.isvpn}</TableCell>
       <TableCell>{analyze.predicted_category}</TableCell>
     </TableRow>

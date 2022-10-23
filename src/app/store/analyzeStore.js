@@ -23,13 +23,13 @@ class AnalyzeStore {
   categories = null;
 
   get filteredAnalyzes() {
-    // return filtersStore.filterAnalyzeResults(this.analyzes);
-    return this.analyzes;
+    return filtersStore.filterAnalyzeResults(this.analyzes);
+    // return this.analyzes;
   }
 
   fetching = false;
 
-  HEADERS = ['id', 'traffic', 'posix', 'category', 'isvpn', 'predicted_category'];
+  HEADERS = ['id', 'traffic', 'posix', 'application', 'isvpn', 'predicted_category'];
 
   fetch = async (file) => {
     if (this.fetching) return;
@@ -49,8 +49,8 @@ class AnalyzeStore {
             id: v[0],
             traffic: v[1],
             posix: v[2],
-            category: v[4],
-            // application: v[5],
+            // category: v[4],
+            application: v[5],
             isvpn: v[6],
             predicted_category: v[7],
           };
