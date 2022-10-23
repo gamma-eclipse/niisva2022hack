@@ -49,6 +49,7 @@
     "no-continue": "warn",
     "no-plusplus": "off",
     "class-methods-use-this": "off",
+    "no-unreachable": "off",
 
     // Warn instead error for fast debugging
     "no-console": "warn",
@@ -68,6 +69,7 @@
     // Sometimes works bad with prettier printWidth
     "implicit-arrow-linebreak": "off",
     "react/prop-types": "off",
+    "object-shorthand": "off",
 
     "react/jsx-filename-extension": [2, { "extensions": [".js", ".jsx", ".ts", ".tsx"] }],
     "import/extensions": [

@@ -17,6 +17,7 @@ class DynamicStore {
 
   get filteredAnalyzes() {
     return filtersStore.filterAnalyzeResults(this.analyzes);
+    // return this.analyzes;
   }
 
   listening = false;

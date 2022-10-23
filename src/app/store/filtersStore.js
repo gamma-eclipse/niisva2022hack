@@ -7,14 +7,16 @@ class FiltersStore {
 
   //* same structure as classification
   applied = {
-    purpose: '',
-    name: '',
+    application: '',
+    isvpn: '',
+    predicted_category: '',
   };
 
   //* same structure as classification
   options = {
-    purpose: ['Браузер', 'Мессенджер', 'Сетевая игра', 'Соцсеть', 'Видеохостинг'],
-    name: ['Chrome', 'Firefox', 'Youtube', 'Coub', 'Telegram'],
+    application: ['netflix', 'skype', 'ssh', 'youtube'],
+    isvpn: ['vpn', 'novpn'],
+    predicted_category: ['Streaming', 'Chat', 'Command and control'],
   };
 
   get changed() {
@@ -30,8 +32,7 @@ class FiltersStore {
   filterAnalyzeResults(analyzeResults) {
     return analyzeResults.filter((result) => {
       return Object.entries(this.applied).every(
-        ([filterName, filterValue]) =>
-          !filterValue || result.classification[filterName].toLowerCase() === filterValue.toLowerCase()
+        ([filterName, filterValue]) => !filterValue || result[filterName].toLowerCase() === filterValue.toLowerCase()
       );
     });
   }

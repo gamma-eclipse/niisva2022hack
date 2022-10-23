@@ -1,18 +1,21 @@
 import { TableRow } from '@mui/material';
+import { toJS } from 'mobx';
 import React from 'react';
 import { TableCell } from 'shared/ui';
 
 export function AnalyzeRow({ analyze }) {
+  console.log(toJS(analyze));
   return (
     <TableRow>
+      {/* {analyze.map((v) => (
+        <TableCell key={v}>{v}</TableCell>
+      ))} */}
       <TableCell>{analyze.id}</TableCell>
-      <TableCell>{analyze.packages}</TableCell>
-      <TableCell>{analyze.traffic}</TableCell>
-      <TableCell>{analyze.protocol}</TableCell>
-      <TableCell>{analyze.host}</TableCell>
-      <TableCell>{analyze.target}</TableCell>
-      <TableCell>{analyze.classification.purpose}</TableCell>
-      <TableCell>{analyze.classification.name}</TableCell>
+      <TableCell>{analyze.traffic} байт</TableCell>
+      <TableCell>{analyze.posix}</TableCell>
+      <TableCell>{analyze.category}</TableCell>
+      <TableCell>{analyze.isvpn}</TableCell>
+      <TableCell>{analyze.predicted_category}</TableCell>
     </TableRow>
   );
 }

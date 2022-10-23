@@ -28,12 +28,18 @@ function UploadForm() {
           ? 'Файл успешно загружен. Результаты выгружены в таблицу'
           : 'Прикрепите pickup файл для анализа'}
       </Title>
-      <TextField type="file" style={{ cursor: 'pointer' }} />
+      <TextField
+        type="file"
+        style={{ cursor: 'pointer' }}
+        onChange={(e) => {
+          analyzeStore.fetch(e.target.files[0]);
+        }}
+      />
       <Button
         disabled={analyzeStore.fetching}
         variant="contained"
         style={{ minWidth: 200 }}
-        onClick={analyzeStore.fetch}
+        // onClick={analyzeStore.fetch}
         endIcon={analyzeStore.fetching ? <HourglassEmptyIcon /> : null}
       >
         {analyzeStore.fetching ? 'Загрузка' : 'Загрузить'}

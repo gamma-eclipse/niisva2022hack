@@ -1,4 +1,5 @@
-import { makeAutoObservable } from 'mobx';
+import { makeAutoObservable, toJS } from 'mobx';
+import * as Papa from 'papaparse';
 import { axiosMock } from 'shared/helpers/axiosMock';
 import { generateCategories } from 'shared/helpers/generateCategories';
 import { analyzesMock } from 'shared/mocks/analyzesMock';
@@ -22,22 +23,43 @@ class AnalyzeStore {
   categories = null;
 
   get filteredAnalyzes() {
-    return filtersStore.filterAnalyzeResults(this.analyzes);
+    // return filtersStore.filterAnalyzeResults(this.analyzes);
+    return this.analyzes;
   }
 
   fetching = false;
 
-  fetch = async () => {
+  HEADERS = ['id', 'traffic', 'posix', 'category', 'isvpn', 'predicted_category'];
+
+  fetch = async (file) => {
     if (this.fetching) return;
 
     this.fetching = true;
     const data = await axiosMock(analyzesMock);
-    this.fetching = false;
 
-    if (data) {
-      this.analyzes = data;
-      this.genCategories();
-    }
+    Papa.parse(file, {
+      complete: (results) => {
+        console.log('Finished:', results.data);
+
+        const body = results.data.slice(1, results.data.length);
+
+        const mapped = body.map((v) => {
+          console.log(v);
+          return {
+            id: v[0],
+            traffic: v[1],
+            posix: v[2],
+            category: v[4],
+            // application: v[5],
+            isvpn: v[6],
+            predicted_category: v[7],
+          };
+        });
+
+        this.fetching = false;
+        this.analyzes = mapped.slice(0, 50);
+      },
+    });
   };
 
   genCategories() {

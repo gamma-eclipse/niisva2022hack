@@ -20,10 +20,11 @@ function Home() {
     <Layout>
       <Wrapper dataFetched={analyzeStore.analyzes}>
         <UploadForm />
-        {analyzeStore.analyzes && analyzeStore.categories && (
+        {/* {analyzeStore.analyzes && analyzeStore.categories && ( */}
+        {analyzeStore.analyzes && (
           <>
-            <GeneralInfo analyzes={analyzeStore.filteredAnalyzes} />
-            <Categories categories={analyzeStore.categories} />
+            {/* <GeneralInfo analyzes={analyzeStore.filteredAnalyzes} /> */}
+            {/* <Categories categories={analyzeStore.categories} /> */}
             <GeneralAnalyze analyzes={analyzeStore.filteredAnalyzes} />
           </>
         )}
