@@ -35,14 +35,15 @@ function UploadForm() {
         style={{ cursor: 'pointer' }}
         onChange={(e) => {
           setFile(e.target.files[0]);
-          // analyzeStore.fetch(e.target.files[0]);
         }}
       />
       <Button
         disabled={analyzeStore.fetching}
         variant="contained"
         style={{ minWidth: 200 }}
-        onClick={() => analyzeStore.fetch(file)}
+        onClick={() => {
+          if (file) analyzeStore.fetch(file);
+        }}
         endIcon={analyzeStore.fetching ? <HourglassEmptyIcon /> : null}
       >
         {analyzeStore.fetching ? 'Загрузка' : 'Загрузить'}
