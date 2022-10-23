@@ -44,12 +44,10 @@ class AnalyzeStore {
         const body = results.data.slice(1, results.data.length);
 
         const mapped = body.map((v) => {
-          console.log(v);
           return {
             id: v[0],
             traffic: v[1],
             posix: v[2],
-            // category: v[4],
             application: v[5],
             isvpn: v[6],
             predicted_category: v[7],
@@ -57,7 +55,7 @@ class AnalyzeStore {
         });
 
         this.fetching = false;
-        this.analyzes = mapped.slice(0, 50);
+        this.analyzes = mapped.slice(0, 1000);
       },
     });
   };

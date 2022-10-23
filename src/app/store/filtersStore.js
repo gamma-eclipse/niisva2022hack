@@ -14,9 +14,9 @@ class FiltersStore {
 
   //* same structure as classification
   options = {
-    application: ['netflix', 'skype', 'ssh', 'youtube'],
+    application: ['vimeo', 'netflix', 'youtube', 'voip', 'skype', 'ssh', 'rdp', 'sftp', 'rsync', 'scp'],
     isvpn: ['vpn', 'nonvpn'],
-    predicted_category: ['Streaming', 'Chat', 'Command and control'],
+    predicted_category: ['streaming', 'voip', 'chat', 'command', 'terminal'],
   };
 
   get changed() {
